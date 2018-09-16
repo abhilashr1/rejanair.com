@@ -24,7 +24,7 @@ github_username:  abhilashr1
 google_analytics: UA-125851266-1
 
 
-permalink: /:title
+permalink: /:title:output_ext
 
 # Build settings
 markdown: kramdown
