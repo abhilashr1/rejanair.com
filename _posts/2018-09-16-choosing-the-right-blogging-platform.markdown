@@ -47,7 +47,7 @@ Azure DevOps offers 1800 minutes free a month, which is around 30 hours. An aver
 
 Azure Pricing Calculator, predicted that my monthly costs would run upto ₹53.85 (<$1). So, that works!
 
-![Github ban for commerical website](/assets/monthly_cost.png)
+![Monthly Azure Cost](/assets/monthly_cost.png)
 
 Creating the setup in Azure was a different experience and one worth writing about in a different blog post. 
 
