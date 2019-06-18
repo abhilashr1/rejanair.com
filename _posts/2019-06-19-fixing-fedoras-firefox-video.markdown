@@ -18,10 +18,12 @@ I tried enabling DRM content on Firefox (which was disabled by default on Fedora
 
 The only solution was to install the missing codecs - H.264. One of the easiest way to do that without manually downloading the missing codecs is to download the most popular plays-every-media-content-ever player of course, VLC. 
 
-Downloading VLC isn't as straight-forward as running `dnf install vlc` on Fedora. The (VLC download page)[https://www.videolan.org/vlc/download-fedora.html] lists the instructions. You can run the below command:
+Downloading VLC isn't as straight-forward as running `dnf install vlc` on Fedora. The [VLC download page](https://www.videolan.org/vlc/download-fedora.html) lists the instructions. You can run the below command:
 
 `sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm`
+
 `sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
+
 `sudo dnf install vlc`
 
 If the package install fails for you, replace `$(rpm -E %fedora)` with your Fedora version number, for example, 30. 
@@ -31,5 +33,3 @@ Once the install is done, close your Firefox and restart again. That should fix 
 PS: For more codes, you can run the below command:
 
 `sudo dnf install vlc-extras`
-
-HTH.
