@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Fixing Fedora's Firefox Video Issues"
-date:   2019-06-19 20:35:08 +0530
+date:   2019-06-19 00:35:08 +0530
 ---
 
 I recently installed Fedora on my laptop, overwriting the default windows partition. Its 2019 - "*the year of the linux desktop*", just like it has been from the 2000s. Fedora 30 was going to respark my love for the open source OS. One thing I completely forgot was the difference in the user experience between Windows and Linux. Among many other things, I found out soon that my touchpad did not work, my wifi drivers were missing and I had to install kernel-devel packages to manually compile, build and install these drivers to get the network working. Things which I had completely lost touch of, when working on Windows. 
