@@ -16,8 +16,11 @@ For example, if you have a fresh OS install, you would have to:
 
 This, of course, would mess up your system if you only intend to use Kafka for one project (or at least temporarily). *Enter Docker!* You can install Kafka and dependencies on Docker and then use the endpoint in your producer/consumer using the address. But that doesn't work so smooth!
 
+
+
 #### Getting Started
 ---
+
 
 First, I pulled an ubuntu image
 
@@ -46,8 +49,11 @@ Test out everything by using the console producer and consumer.
 
 `~/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 -topic your-topic-name --from-beginning ` (and check if you see them)
 
+
+
 #### Communicate outside docker
 ---
+
 
 If everything is okay, your consumer and producer, from within the docker container, are able to communicate with each other. While this is great, if you want to access Kafka from outside of docker, you'd have to take care of two things:
 - Ensure the port is exposed.
