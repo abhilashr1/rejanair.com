@@ -1,34 +1,38 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+  {%- include head.html -%}
 
-  {{ content }}
+  <body>
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
 
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%}
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div id="home">
 
-</div>
+          <div id="hero">
+            <h1>Abhilash Rejanair</h1>
+          </div>
+          <ul id="links">
+            <li class="link"> <a href="https://github.com/abhilashr1">Github</a> </li>
+            <li class="link"> <a href="/blog">Blog</a> </li>
+            <li class="link"> <a href="https://www.linkedin.com/in/abhilashrejanair/">Linkedin</a> </li>
+            <li class="link"> <a href="mailto:abhilash at rejanair.com">Email</a> </li>
+            <li class="link"> <a href="https://twitter.com/bluewindlash" alt="Memes and personal opinions">Twitter</a> </li>
+            <li class="link"> <a href="/about">About</a> </li>
+          </ul>
+        
+          <div id="about">
+            <h2>About me</h2>
+            <p>Hello 👋🏽 I'm Abhilash Rejanair, a Fullstack software engineer. I like building software. </p>
+          </div>
+        
+        </div>
+      </div>
+    </main>
+  </body>
+
+</html>
+
+
+

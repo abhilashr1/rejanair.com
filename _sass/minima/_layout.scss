@@ -22,6 +22,10 @@
   &:visited {
     color: $grey-color-dark;
   }
+  
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .site-nav {
@@ -252,4 +256,62 @@
       @include relative-font-size(1.125);
     }
   }
+}
+
+/*
+* Home
+*/
+
+#hero {
+  h1 {
+    font-size: 85px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: 100px;
+    padding-top:20vh;
+    width:700px;
+  }
+}
+
+#links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  li {
+    margin-right: 35px;
+    padding: 10px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    
+    &:hover {
+      color: $background-color;
+      background-color: $text-color;
+      transition: 0.3s ease-in-out;
+
+      a {
+        color: $background-color;
+        transition: 0.2s ease-in-out;
+
+      }
+    }
+
+    a {
+      color: $text-color;
+      font-size: 20px;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+
+    }
+  }
+}
+
+#about {
+  margin-top: 25vh;
 }
