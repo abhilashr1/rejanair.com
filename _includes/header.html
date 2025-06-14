@@ -3,11 +3,15 @@
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
-    
-    {%- if page.url == "/blog.html" -%}
-      <a class="site-title" rel="author" href="{{ "/" | relative_url }}">Home</a>
-    {%- else -%}
+
+    {%- if page.url == "/" -%}
+      <div></div>
+    {%- elsif page.url == "/blog.html" -%}
+      <a class="site-title" rel="author" href="{{ "/" | relative_url }}">Abhilash Rejanair</a>
+    {%- elsif page.url contains "/blog" -%}
       <a class="site-title" rel="author" href="{{ "/blog" | relative_url }}">⟵</a>
+    {%- else -%}
+      <a class="site-title" rel="author" href="{{ "/" | relative_url }}">Abhilash Rejanair</a>
     {%- endif -%}
     
     {%- if page_paths -%}

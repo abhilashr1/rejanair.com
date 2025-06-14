@@ -2,29 +2,61 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
   {%- include head.html -%}
-
   <body>
-
-
+    {%- include header.html -%}
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         <div id="home">
-
           <div id="hero">
-            <h1>Abhilash Rejanair</h1>
+            <h1>Hi, I'm Abhi.</h1>
+              <p>I'm Abhilash Rejanair, a Software Engineer with over 8+ years of experience building and scaling cloud-native systems across fintech and e-commerce domains. I specialize in architecting scalable microservices, and optimizing high-performance systems that handle millions of transactions. I'm passionate about software engineering, hardware tinkering and now, AI.</p>
+            <br>
+            <br>
           </div>
-          <ul id="links">
-            <li class="link"> <a href="https://github.com/abhilashr1">Github</a> </li>
-            <li class="link"> <a href="/blog">Blog</a> </li>
-            <li class="link"> <a href="https://www.linkedin.com/in/abhilashrejanair/">Linkedin</a> </li>
-            <li class="link"> <a href="mailto:abhilash at rejanair.com">Email</a> </li>
-            <li class="link"> <a href="/about">About</a> </li>
-          </ul>
-        
-          <div id="about">
-            <h2>About me</h2>
-            <p>Hello 👋🏽 I'm Abhilash Rejanair, a Fullstack software engineer. I like building software. </p>
+        </div>
+        <div class="content-wrapper">
+          <div class="posts">
+            {%- if site.posts.size > 0 -%}
+            <h3 class="home-post-list-heading">
+              <a href="/blog">Posts →</a>
+            </h3>
+            <ul class="home-post-list">
+              {%- for post in site.posts limit: 5 -%}
+              <li>
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                <span class="home-post-meta">{{ post.date | date: date_format }}</span>
+                <h4>
+                  <a class="home-post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                  </a>
+                </h4>
+              </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
           </div>
+          <div class="papershelf">
+            {%- assign paper_posts = site.posts | where: "tags", "paper" -%}
+            {%- if paper_posts.size > 0 -%}
+            <h3 class="home-post-list-heading">
+              <a href="/papershelf">Papershelf →</a>
+            </h3>
+            <ul class="home-post-list">
+              {%- for post in paper_posts limit: 5 -%}
+              <li>
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                <span class="home-post-meta">{{ post.date | date: date_format }}</span>
+                <h4>
+                  <a class="home-post-link" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                  </a>
+                </h4>
+              </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+          </div>
+          
         
         </div>
       </div>

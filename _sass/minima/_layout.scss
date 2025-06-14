@@ -1,4 +1,25 @@
 /**
+ * Fonts
+ */
+ .font-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.font-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/**
  * Site header
  */
 .site-header {
@@ -211,6 +232,45 @@
   @include relative-font-size(1.5);
 }
 
+.home-page-content {
+  padding: $spacing-unit 0;
+  flex: 1;
+}
+
+.home-page-heading {
+  @include relative-font-size(1);
+}
+
+.home-post-list-heading {
+  @include relative-font-size(1.25); 
+  a {
+    color: $text-color;
+  }
+}
+
+.home-post-list {
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.home-post-meta {
+  font-size: $small-font-size;
+  color: $grey-color;
+}
+
+.home-post-link {
+  display: block;
+  color: $text-color;
+
+  @include relative-font-size(1);
+  a {
+    color: $text-color;
+  }
+}
 
 
 /**
@@ -264,12 +324,26 @@
 
 #hero {
   h1 {
-    font-size: 85px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-family: 'Libre Baskerville', Times, serif;
     text-align: center;
-    line-height: 100px;
-    padding-top:20vh;
-    width:700px;
+  }
+  p {
+    font-size: 14px;
+    font-family: 'Libre Baskerville', Times, serif;
+    text-align: center;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  img {
+    border-radius: 4px;
   }
 }
 
@@ -280,38 +354,34 @@
   justify-content: center;
 
   li {
-    margin-right: 35px;
-    padding: 10px;
-    transition: 0.3s ease-in-out;
+    margin-right: 15px;
+    padding: 5px;
     cursor: pointer;
     display: inline-block;
-    border-radius: 4px;
-    
-    &:hover {
-      color: $background-color;
-      background-color: $text-color;
-      transition: 0.3s ease-in-out;
-
-      a {
-        color: $background-color;
-        transition: 0.2s ease-in-out;
-
-      }
-    }
 
     a {
       color: $text-color;
-      font-size: 20px;
-
-      &:hover {
-        text-decoration: none;
+    }
+    
+    &:hover {
+      a {
+        text-decoration: underline;
       }
-
-
     }
   }
 }
 
-#about {
-  margin-top: 25vh;
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .posts, .papershelf {
+    flex: 1;
+    min-width: 0; // Prevents flex items from overflowing
+  }
 }
