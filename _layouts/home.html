@@ -22,15 +22,17 @@
             </h3>
             <ul class="home-post-list">
               {%- for post in site.posts limit: 5 -%}
-              <li>
-                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                <span class="home-post-meta">{{ post.date | date: date_format }}</span>
-                <h4>
-                  <a class="home-post-link" href="{{ post.url | relative_url }}">
-                    {{ post.title | escape }}
-                  </a>
-                </h4>
-              </li>
+                {%- unless post.tags contains 'paper' -%}
+                <li>
+                  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                  <span class="home-post-meta">{{ post.date | date: date_format }}</span>
+                  <h4>
+                    <a class="home-post-link" href="{{ post.url | relative_url }}">
+                      {{ post.title | escape }}
+                    </a>
+                  </h4>
+                </li>
+                {%- endunless -%}
               {%- endfor -%}
             </ul>
           {%- endif -%}
