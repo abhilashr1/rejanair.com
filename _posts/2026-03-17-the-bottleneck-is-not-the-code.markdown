@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Bottleneck Is Not the Code"
-date:   2026-03-18 10:00:00 +0530
+date:   2026-03-17 10:00:00 +0530
 tags: [engineering, code-review, teams, process, opinion]
 ---
 
