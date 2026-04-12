@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import { isPaper, sortPostsDescending } from '../utils/posts';
+
+const allPosts = sortPostsDescending(await getCollection('posts'));
+const posts = allPosts.filter((post) => !isPaper(post)).slice(0, 5);
+const papers = allPosts.filter(isPaper).slice(0, 5);
+const projects = [
+  {
+    name: 'PromptPay QR Customizer',
+    href: 'https://promptpay.rejanair.com',
+    description: 'Customize PromptPay QR codes for cleaner, more flexible payment links.',
+  },
+  {
+    name: 'Hormus - Database Client',
+    href: 'https://github.com/abhilashr1/hormus',
+    description: 'A database client project focused on working with data more directly.',
+  },
+];
+---
+
+<BaseLayout>
+  <div id="home">
+    <div id="hero">
+      <h1>Hi, I&apos;m Abhi.</h1>
+      <p>
+        I&apos;m Abhilash Rejanair, a Software Engineer with over 8+ years of experience
+        building and scaling cloud-native systems across fintech and e-commerce
+        domains. I specialize in architecting scalable microservices, and
+        optimizing high-performance systems that handle millions of transactions.
+        I&apos;m passionate about software engineering, hardware tinkering and now, AI.
+      </p>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="posts">
+      {posts.length > 0 && (
+        <>
+          <h3 class="home-post-list-heading">
+            <a href="/blog/">Posts →</a>
+          </h3>
+          <PostList posts={posts} compact />
+        </>
+      )}
+    </div>
+
+    <div class="papershelf">
+      {papers.length > 0 && (
+        <>
+          <h3 class="home-post-list-heading">
+            <a href="/papershelf/">Papershelf →</a>
+          </h3>
+          <PostList posts={papers} compact />
+        </>
+      )}
+    </div>
+
+    <div class="projects">
+      <h3 class="home-post-list-heading">Projects</h3>
+      <ul class="home-post-list project-list">
+        {projects.map((project) => (
+          <li>
+            <h4>
+              <a
+                class="home-post-link"
+                href={project.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {project.name}
+              </a>
+            </h4>
+            <p class="project-description">{project.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

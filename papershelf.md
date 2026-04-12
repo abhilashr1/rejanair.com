@@ -1,4 +1,0 @@
----
-layout: papershelf
-title: Papershelf
----

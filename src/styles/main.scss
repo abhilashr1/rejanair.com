@@ -1,0 +1,22 @@
+@use "../../_sass/minima";
+
+.content-wrapper {
+  flex-wrap: wrap;
+
+  .posts,
+  .papershelf,
+  .projects {
+    flex: 1 1 280px;
+    min-width: 0;
+  }
+}
+
+.project-list h4 {
+  margin-bottom: 0.35rem;
+}
+
+.project-description {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}

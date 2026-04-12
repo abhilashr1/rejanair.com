@@ -1,0 +1,37 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../utils/date';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date: Date;
+    author?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="headline">{frontmatter.title}</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime={frontmatter.date.toISOString()} itemprop="datePublished">
+          {formatDate(frontmatter.date)}
+        </time>
+        {frontmatter.author && (
+          <>
+            {' '}
+            • <span itemprop="author">{frontmatter.author}</span>
+          </>
+        )}
+      </p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

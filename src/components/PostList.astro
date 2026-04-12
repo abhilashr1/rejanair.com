@@ -1,0 +1,29 @@
+---
+import { formatDate } from '../utils/date';
+import { getPostSlug, excerptFromBody } from '../utils/posts';
+import type { Post } from '../utils/posts';
+
+interface Props {
+  posts: Post[];
+  showExcerpt?: boolean;
+  compact?: boolean;
+}
+
+const { posts, showExcerpt = false, compact = false } = Astro.props;
+---
+
+<ul class={compact ? 'home-post-list' : 'post-list'}>
+  {posts.map((post) => (
+    <li>
+      <span class={compact ? 'home-post-meta' : 'post-meta'}>
+        {formatDate(post.data.date)}
+      </span>
+      <h3>
+        <a class={compact ? 'home-post-link' : 'post-link'} href={`/blog/${getPostSlug(post)}/`}>
+          {post.data.title}
+        </a>
+      </h3>
+      {showExcerpt && <p>{excerptFromBody(post.body)}</p>}
+    </li>
+  ))}
+</ul>

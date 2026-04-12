@@ -3,3 +3,6 @@ _site
 .jekyll-metadata
 .claude
 .DS_Store
+node_modules
+dist
+.astro

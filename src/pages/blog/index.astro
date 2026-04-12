@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { isPaper, sortPostsDescending } from '../../utils/posts';
+
+const posts = sortPostsDescending(await getCollection('posts')).filter(
+  (post) => !isPaper(post),
+);
+---
+
+<BaseLayout title="Blog">
+  <div class="home">
+    <h1 class="page-heading">Blog</h1>
+    <PostList posts={posts} showExcerpt />
+    <p class="rss-subscribe">
+      subscribe <a href="/feed.xml">via RSS</a>
+    </p>
+  </div>
+</BaseLayout>

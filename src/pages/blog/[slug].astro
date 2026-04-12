@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import PostLayout from '../../layouts/PostLayout.astro';
+import { getPostSlug, sortPostsDescending } from '../../utils/posts';
+
+export const getStaticPaths = (async () => {
+  const posts = sortPostsDescending(await getCollection('posts'));
+
+  return posts.map((post) => ({
+    params: { slug: getPostSlug(post) },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout frontmatter={post.data}>
+  <Content />
+</PostLayout>
