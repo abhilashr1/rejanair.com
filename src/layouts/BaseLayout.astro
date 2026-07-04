@@ -31,7 +31,17 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).toString();
     <link rel="shortcut icon" type="image/png" href="/assets/biglogo.png" />
     <title>{pageTitle}</title>
     {site.googleAnalyticsId && (
-      <meta name="google-analytics" content={site.googleAnalyticsId} />
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.googleAnalyticsId}`}></script>
+        <script is:inline define:vars={{ googleAnalyticsId: site.googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', googleAnalyticsId);
+        </script>
+      </>
     )}
   </head>
 

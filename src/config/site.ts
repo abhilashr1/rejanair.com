@@ -5,7 +5,7 @@ export const site = {
   author: 'Abhilash Rejanair',
   email: 'abhilash@rejanair.com',
   githubUsername: 'abhilashr1',
-  googleAnalyticsId: 'UA-125851266-1',
+  googleAnalyticsId: 'G-PF202JRHG2',
 };
 
 export const navigation = [
